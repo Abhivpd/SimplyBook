@@ -4,7 +4,9 @@ import * as apiClient from "../api-client";
 const SignOutButton = () => {
   const mutation = useMutation(apiClient.logout, {
     onSuccess: () => {},
-    onError: (error: Error) => {},
+    onError: (error: Error) => {
+      console.log(error);
+    },
   });
 
   const clickHandler = () => mutation.mutate();
