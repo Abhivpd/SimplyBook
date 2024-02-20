@@ -51,5 +51,18 @@ export const logout = async () => {
     credentials: "include",
   });
 
-  if(!response.ok) throw new Error('Something went wrong')
+  if (!response.ok) throw new Error("Something went wrong");
+};
+
+export const addHotel = async (formData: FormData) => {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels/add`, {
+    method: "POST",
+    credentials: "include",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to add hotel");
+  }
+  return response.json();
 };

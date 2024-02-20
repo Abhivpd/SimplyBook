@@ -1,9 +1,12 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
 
 const SignOutButton = () => {
+  const queryClient = useQueryClient();
   const mutation = useMutation(apiClient.logout, {
-    onSuccess: () => {},
+    onSuccess: async () => {
+      await queryClient.invalidateQueries("validateToken");
+    },
     onError: (error: Error) => {
       console.log(error);
     },
