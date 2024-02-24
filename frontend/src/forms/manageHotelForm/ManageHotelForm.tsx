@@ -4,6 +4,7 @@ import TypeSection from "./TypeSection";
 import FacilitiesSection from "./FacilitiesSection";
 import GuestsSection from "./GuestsSection";
 import ImagesSection from "./ImagesSection";
+import { HotelType } from "../../utils/models";
 
 type Props = {
   onSave: (hotelFormData: FormData) => void;

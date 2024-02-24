@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form";
+import { HotelType } from "../../utils/models";
 
 const ImagesSection = () => {
   const {
