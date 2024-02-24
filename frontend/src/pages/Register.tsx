@@ -3,6 +3,7 @@ import * as apiClient from "../api-client";
 import { useMutation, useQueryClient } from "react-query";
 import { useAppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
+import { RegisterFormData } from "../utils/models";
 
 const Register = () => {
   const { showToast } = useAppContext();

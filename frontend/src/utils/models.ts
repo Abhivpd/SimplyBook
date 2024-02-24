@@ -1,4 +1,4 @@
-type RegisterFormData = {
+export type RegisterFormData = {
   firstName: string;
   lastName: string;
   email: string;
@@ -6,12 +6,13 @@ type RegisterFormData = {
   confirmPassword: string;
 };
 
-type SignInFormData = {
+export type SignInFormData = {
   email: string;
   password: string;
 };
 
-type HotelType = {
+export type HotelType = {
+  _id: string 
   name: string;
   city: string;
   country: string;
