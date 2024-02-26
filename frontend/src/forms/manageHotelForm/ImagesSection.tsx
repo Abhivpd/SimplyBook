@@ -1,6 +1,5 @@
 import { useFormContext } from "react-hook-form";
 import { HotelType } from "../../utils/models";
-import { PiImageSquare } from "react-icons/pi";
 
 const ImagesSection = () => {
   const {
@@ -53,7 +52,8 @@ const ImagesSection = () => {
           className="w-full text-gray-700 font-normal"
           {...register("imageFiles", {
             validate: (imageFiles) => {
-              const totalLength = imageFiles.length + (existingImagesUrls?.length || 0);
+              const totalLength =
+                imageFiles.length + (existingImagesUrls?.length || 0);
               if (totalLength === 0) return "Please add atleast one images";
               else if (totalLength > 6)
                 return "Maximum of six images can be selected";
