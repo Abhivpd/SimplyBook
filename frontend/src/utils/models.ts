@@ -12,7 +12,7 @@ export type SignInFormData = {
 };
 
 export type HotelType = {
-  _id: string 
+  _id: string;
   name: string;
   city: string;
   country: string;
@@ -24,4 +24,5 @@ export type HotelType = {
   pricePerNight: number;
   starRating: number;
   imageFiles: FileList;
+  imageUrls: string[];
 };

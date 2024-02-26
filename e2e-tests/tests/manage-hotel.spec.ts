@@ -62,5 +62,27 @@ test("should display hotels", async ({ page }) => {
   await expect(page.getByText("3 Star Rating")).toBeVisible();
 
   await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "View Details" })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "View Details" }).first()
+  ).toBeVisible();
+});
+
+test("should edit hotel", async ({ page }) => {
+  await page.goto(`${UI_URL}my-hotels`);
+
+  await page.getByRole("link", { name: "View Details" }).first().click();
+
+  await page.waitForSelector('[name="name"]', { state: "attached" });
+
+  await expect(page.locator('[name="name"]')).toHaveValue("Testing Hotel");
+
+  await page.locator('[name="name"]').fill("Test Hotel");
+  await page.getByRole("button", { name: "Save" }).click();
+  await expect(page.getByText("Hotel has been updated")).toBeVisible();
+
+  await page.reload();
+
+  await expect(page.locator('[name="name"]')).toHaveValue("Test Hotel");
+
+  await page.locator('[name="name"]').fill("Testing Hotel");
 });
