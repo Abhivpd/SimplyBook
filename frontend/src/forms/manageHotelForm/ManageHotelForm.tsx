@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from "react-hook-form";
-import DeatilsSection from "./DeatilsSection";
+import DetailsSection from "./DetailsSection";
 import TypeSection from "./TypeSection";
 import FacilitiesSection from "./FacilitiesSection";
 import GuestsSection from "./GuestsSection";
@@ -54,7 +54,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
   return (
     <FormProvider {...formMethods}>
       <form className="container flex flex-col gap-8" onSubmit={onSubmit}>
-        <DeatilsSection />
+        <DetailsSection />
         <TypeSection />
         <FacilitiesSection />
         <GuestsSection />
