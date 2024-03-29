@@ -1,29 +1,29 @@
 import React from "react";
+import { hotelTypes } from "../config/hotel.config";
 
 type Props = {
-  selectedStars: string[];
+  selectedHotelTypes: string[];
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const StarRatingFilter = ({ selectedStars, onChange }: Props) => {
+const HotelTypesFilter = ({ selectedHotelTypes, onChange }: Props) => {
   return (
     <div className="border-b border-slate-300 pb-6">
-      <h4 className="text-md font-semibold mb-2">Property Rating</h4>
-      
-      {["5", "4", "3", "2", "1"].map((star) => (
+      <h4 className="text-md font-semibold mb-2">Hotel Type</h4>
+      {hotelTypes.map((type) => (
         <label className="flex items-center space-x-2">
           <input
             type="checkbox"
             className="rounded"
-            value={star}
-            checked={selectedStars.includes(star)}
+            value={type}
+            checked={selectedHotelTypes.includes(type)}
             onChange={onChange}
           />
-          <span>{star} Stars</span>
+          <span>{type}</span>
         </label>
       ))}
     </div>
   );
 };
 
-export default StarRatingFilter;
+export default HotelTypesFilter;

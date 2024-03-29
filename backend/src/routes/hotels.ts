@@ -7,7 +7,6 @@ const router = Router();
 router.get("/search", async (req: Request, res: Response) => {
   try {
     const query = constructSearchQuery(req.query);
-    console.log(query);
 
     let sortOptions = {};
     switch (req.query.sortOption) {
@@ -23,8 +22,6 @@ router.get("/search", async (req: Request, res: Response) => {
         sortOptions = { pricePerNight: -1 };
         break;
     }
-
-    console.log(sortOptions, "sort");
 
     const pageSize = 5;
     const pageNumber = parseInt(
@@ -56,7 +53,6 @@ router.get("/search", async (req: Request, res: Response) => {
 });
 
 const constructSearchQuery = (queryParams: any) => {
-  console.log(queryParams);
   let constructedQuery: any = {};
 
   if (queryParams.destination) {
@@ -87,7 +83,7 @@ const constructSearchQuery = (queryParams: any) => {
   }
 
   if (queryParams.types) {
-    constructedQuery.types = {
+    constructedQuery.type = {
       $in: Array.isArray(queryParams.types)
         ? queryParams.types
         : [queryParams.types],
