@@ -77,7 +77,7 @@ const SearchBar = () => {
       <div className="flex items-center flex-1 bg-white">
         <Datepicker
           selected={checkIn}
-          onChange={(date) => setCheckIn(date as Date)}
+          onChange={(date: Date) => setCheckIn(date)}
           selectsStart
           startDate={checkIn}
           endDate={checkOut}
@@ -92,7 +92,7 @@ const SearchBar = () => {
       <div className="flex items-center flex-1 bg-white">
         <Datepicker
           selected={checkOut}
-          onChange={(date) => setCheckOut(date as Date)}
+          onChange={(date: Date) => setCheckOut(date)}
           selectsStart
           startDate={checkIn}
           endDate={checkOut}

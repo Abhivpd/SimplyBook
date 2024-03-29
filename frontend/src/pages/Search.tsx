@@ -4,10 +4,10 @@ import * as apiClient from "../api-client";
 import React, { useState } from "react";
 import SearchResultsCard from "../components/SearchResultsCard";
 import Paginator from "../components/Paginator";
-import StarRatingFilter from "../components/starRatingFilter";
 import HotelTypesFilter from "../components/HotelTypesFilter";
 import FacilitiesFilter from "../components/FacilitiesFilter";
 import PriceFilter from "../components/PriceFilter";
+import StarRatingFilter from "../components/StarRatingFilter";
 
 const Search = () => {
   const search = useSearchContext();
