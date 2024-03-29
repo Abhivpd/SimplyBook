@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
 import { useAppContext } from "../context/AppContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SignInFormData } from "../utils/models";
 
 const SignIn = () => {
@@ -14,6 +14,8 @@ const SignIn = () => {
   const { showToast } = useAppContext();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const location = useLocation();
+
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
       showToast({
@@ -21,7 +23,7 @@ const SignIn = () => {
         type: "SUCCESS",
       });
       await queryClient.invalidateQueries("validateToken");
-      navigate("/");
+      navigate(location.state?.from?.pathname || "/");
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
@@ -70,7 +72,10 @@ const SignIn = () => {
         Login
       </button>
       <span className="text-sm self-center">
-        New Here? <Link to="/register" className="underline">Signup</Link>
+        New Here?{" "}
+        <Link to="/register" className="underline">
+          Signup
+        </Link>
       </span>
     </form>
   );
